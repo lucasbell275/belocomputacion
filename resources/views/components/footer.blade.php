@@ -17,29 +17,29 @@
             
             <!--Computadoras -->
             <li class="relative group">
-                <a href="" 
-                   class="text-sm uppercase tracking-wide  transition-colors duration-300 {{ request()->routeIs('computadoras') ? 'text-[#008DD5]' : 'hover:text-[#008DD5]' }}">
+                <a href="{{ route('computadoras.index') }}" 
+                   class="text-sm uppercase tracking-wide  transition-colors duration-300 {{ request()->routeIs('computadoras.index') ? 'text-[#008DD5]' : 'hover:text-[#008DD5]' }}">
                     Computadoras
                 </a>
-                <span class="absolute -bottom-1 left-1/2 h-0.5 bg-[#008DD5] transition-all duration-300 -translate-x-1/2 {{ request()->routeIs('computadoras') ? 'w-full' : 'w-0 group-hover:w-full' }}"></span>
+                <span class="absolute -bottom-1 left-1/2 h-0.5 bg-[#008DD5] transition-all duration-300 -translate-x-1/2 {{ request()->routeIs('computadoras.index') ? 'w-full' : 'w-0 group-hover:w-full' }}"></span>
             </li>
 
             <!-- Ofertas -->
             <li class="relative group">
-                <a href="" 
-                   class="text-sm uppercase tracking-wide  transition-colors duration-300 {{ request()->routeIs('ofertas') ? 'text-[#008DD5]' : 'hover:text-[#008DD5]' }}">
+                <a href="{{ route('ofertas.index') }}" 
+                   class="text-sm uppercase tracking-wide  transition-colors duration-300 {{ request()->routeIs('ofertas.index') ? 'text-[#008DD5]' : 'hover:text-[#008DD5]' }}">
                     Ofertas
                 </a>
-                <span class="absolute -bottom-1 left-1/2 h-0.5 bg-[#008DD5] transition-all duration-300 -translate-x-1/2 {{ request()->routeIs('ofertas') ? 'w-full' : 'w-0 group-hover:w-full' }}"></span>
+                <span class="absolute -bottom-1 left-1/2 h-0.5 bg-[#008DD5] transition-all duration-300 -translate-x-1/2 {{ request()->routeIs('ofertas.index') ? 'w-full' : 'w-0 group-hover:w-full' }}"></span>
             </li>
 
             <!-- Marcas -->
             <li class="relative group">
-                <a href="" 
-                   class="text-sm uppercase tracking-wide  transition-colors duration-300 {{ request()->routeIs('marcas') ? 'text-[#008DD5]' : 'hover:text-[#008DD5]' }}">
+                <a href="{{ route('marcas.index') }}" 
+                   class="text-sm uppercase tracking-wide  transition-colors duration-300 {{ request()->routeIs('marcas.index') ? 'text-[#008DD5]' : 'hover:text-[#008DD5]' }}">
                     Marcas
                 </a>
-                <span class="absolute -bottom-1 left-1/2 h-0.5 bg-[#008DD5] transition-all duration-300 -translate-x-1/2 {{ request()->routeIs('marcas') ? 'w-full' : 'w-0 group-hover:w-full' }}"></span>
+                <span class="absolute -bottom-1 left-1/2 h-0.5 bg-[#008DD5] transition-all duration-300 -translate-x-1/2 {{ request()->routeIs('marcas.index') ? 'w-full' : 'w-0 group-hover:w-full' }}"></span>
             </li>
         </div>
         <div class="text-center">
@@ -68,9 +68,9 @@
         <div class="text-center flex flex-col pl-10">
             <h3 class="mt-18 pr-5 mb-4 text-[#008DD5] font-bold text-medium leading-none">Seguinos en nuestras redes sociales</h3>
             <div class="flex justify-center gap-15 pr-5 mt-2">
-                <p><img class="w-8 h-auto" src="{{asset('images/footer/facebook.png')}}" alt="Facebook"></p>
-                <p><img class="w-8 h-auto" src="{{asset('images/footer/x.png')}}" alt="Twitter"></p>
-                <p><img class="w-8 h-auto" src="{{asset('images/footer/ig.png')}}" alt="Instagram"></p>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img class="w-8 h-auto" src="{{asset('images/footer/facebook.png')}}" alt="Facebook"></a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img class="w-8 h-auto" src="{{asset('images/footer/x.png')}}" alt="Twitter"></a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img class="w-8 h-auto" src="{{asset('images/footer/ig.png')}}" alt="Instagram"></a>
             </div>  
         </div>
         {{-- UBICACION --}}
@@ -81,6 +81,8 @@
             </p>
         </div>
     </div>
+
+    {{-- Franja de copyright, abajo de todo --}}
     <div class="flex flex-row justify-between p-[.5rem] font-[Inter] text-[1rem] font-normal text-white bg-[#2B3241] opacity-97 shadow-[0_-10px_20px_rgba(0,0,0,0.02)]">
         <p>© Copyright 2026 <b>belocomputacion</b> Todos los derechos reservados</p>
         <p class="font-light">by <b>Lucas</b></p>

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->string('imagen');
             $table->integer('stock');
-            $table->decimal('precio');
+            $table->decimal('precio', 12, 2);
             $table->string('slug')->unique();
             $table->boolean('oferta')->default(false);
             $table->timestamps();
