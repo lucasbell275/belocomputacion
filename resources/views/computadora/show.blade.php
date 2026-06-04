@@ -18,11 +18,17 @@
             </p>
             <p> {{$computadora->stock}} unidades en stock</p>
 
-            {{-- Boton de editar publicaciones --}}
-            <a class="hover:text-[#006fa3] text-[11px] pt-2" href="{{route('computadoras.edit', $computadora->slug) }}">Editar publicacion</a>
+            @auth
+                @if (auth()->user()->is_admin)
+                    {{-- Boton de editar publicaciones --}}
+                    <a class="hover:text-[#006fa3] text-[11px] pt-2" href="{{route('computadoras.edit', $computadora->slug) }}">Editar publicacion</a>
 
-            {{-- Boton de comprar --}}
-            <a class="font-bold text-[16px] bg-white rounded-lg py-2 text-black w-sm mt-auto py-2 px-4 mx-auto  text-center hover:bg-[#006fa3] transition-colors duration-300" href="{{route('computadoras.show', $computadora->slug)}}">  Comprar</a>
+
+                @endif
+
+            @endauth
+                {{-- Boton de comprar --}}
+                <a class="font-bold text-[16px] bg-white rounded-lg py-2 text-black w-sm mt-auto py-2 px-4 mx-auto  text-center hover:bg-[#006fa3] transition-colors duration-300" href="{{route('computadoras.show', $computadora->slug)}}">  Comprar</a>
         </div>
     </main>
 

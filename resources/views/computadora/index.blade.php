@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('header_extra')
-    {{-- Boton de agregar computadora --}}
-    <a class="font-bold text-[16px] bg-white rounded-lg py-2 text-black w-sm mt-auto py-2 px-4 mx-auto  text-center hover:bg-[#006fa3] transition-colors duration-300" href="{{ route('computadoras.create') }}">Agregar computadora</a>
+    @auth
+        @if (auth()->user()->is_admin)
+            {{-- Boton de agregar computadora --}}
+            <a class="font-bold text-[16px] bg-white rounded-lg py-2 text-black w-sm mt-auto py-2 px-4 mx-auto  text-center hover:bg-[#006fa3] transition-colors duration-300" href="{{ route('computadoras.create') }}">Agregar computadora</a>
+        @endif
+    @endauth
 @endsection
 
 @section('content')
@@ -33,12 +37,16 @@
                         {{-- Boton de editar publicaciones --}}
 
 
-                        <a class="hover:text-[#006fa3] text-[11px] pt-2" href="{{route('computadoras.edit', $computadoras->slug) }}">Editar publicacion</a>
+                        @auth
+                            @if (auth()->user()->is_admin)
+                                <a class="hover:text-[#006fa3] text-[11px] pt-2" href="{{route('computadoras.edit', $computadoras->slug) }}">Editar publicacion</a>
+                            @endif
+                        @endauth
 
 
                         {{-- Boton de comprar --}}
 
-                        <a class="font-bold text-[16px] bg-white rounded-lg py-2 text-black w-sm mt-auto py-2 px-4 mx-auto  text-center hover:bg-[#006fa3] transition-colors duration-300" href="{{route('computadoras.show', $computadoras->slug)}}">  Comprar</a>
+                        <a class="font-bold text-[16px] bg-white rounded-lg py-2 text-black w-sm mt-auto py-2 px-4 mx-auto  text-center hover:bg-[#006fa3] transition-colors duration-300" href="{{route('computadoras.show', $computadoras->slug)}}"> Ir a la publicacion</a>
                         
                     </div>
             @endforeach

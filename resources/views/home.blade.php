@@ -20,6 +20,7 @@
                 </div>
                 {{-- "Eslogan" --}}
                 <p class=" text-xl font-semibold text-gray-300">La computadora de tus sueños, a un solo click.</p>
+                
             </div>
 
             {{-- Carrusel ofertas --}}

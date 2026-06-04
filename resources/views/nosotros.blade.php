@@ -11,7 +11,7 @@
     
 @endpush
 @section('content')
-    <div class="flex flex-row">
+    <div class="flex flex-wrap">
         <div class=" flex flex-col items-start py-20 pl-20 gap-3  ">
             <div>
                 {{-- Titulo de la empresa --}}
@@ -31,7 +31,7 @@
 
                 <p><b>Garantía de confianza:</b> </p>  <p> Tu inversión está protegida. Nos esforzamos por ofrecer productos que superen los estándares de calidad, para que tu única preocupación sea disfrutar de la potencia de tu nueva PC.</p>
 
-            <p> Estamos acá para convertir la complejidad de elegir componentes en una experiencia simple, segura y a un solo  <b>click</b.</p>
+            <p> Estamos acá para convertir la complejidad de elegir componentes en una experiencia simple, segura y a un solo  <b>click</b>. </p>
 
             </div>
 

@@ -12,8 +12,8 @@
     </style>
 @endpush
 @section('content')
-    <main>
-        <form action="{{route('contacto.store')}}" method="POST" class="grid grid-cols-4 gap-10 text-[15.4px] font-semibold  text-gray-300 pt-10 px-3">
+    <main class="h-screen">
+        <form action="{{route('contacto.store')}}" method="POST" class="grid grid-cols-4 gap-15 text-[15.4px] font-semibold  text-gray-300 pt-10 px-3">
             @csrf
             <label for="nombre">Nombre:</label>
             <input type="text" name="nombre" id="nombre" placeholder="Nombre">

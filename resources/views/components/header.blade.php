@@ -14,7 +14,7 @@
 
  
 <!-- Navegacion -->
-        <ul class="flex items-center space-x-8 text-white buttons">
+        <ul class="flex items-center space-x-8 text-white buttons max-[800px]:hidden">
             
             <!--Computadoras -->
             <li class="relative group">
@@ -54,11 +54,41 @@
 
             <!-- Contacto -->
             <li class="relative group">
-                <a href="" 
-                   class="text-sm uppercase tracking-wider font-medium transition-colors duration-300 {{ request()->routeIs('contacto') ? 'text-[#008DD5]' : 'hover:text-[#008DD5]' }}">
+                <a href="{{ route('contacto.index') }}"
+                   class="text-sm uppercase tracking-wider font-medium transition-colors duration-300 {{ request()->routeIs('contacto.*') ? 'text-[#008DD5]' : 'hover:text-[#008DD5]' }}">
                     Contacto
                 </a>
-                <span class="absolute -bottom-1 left-1/2 h-0.5 bg-[#008DD5] transition-all duration-300 -translate-x-1/2 {{ request()->routeIs('contacto') ? 'w-full' : 'w-0 group-hover:w-full' }}"></span>
+                <span class="absolute -bottom-1 left-1/2 h-0.5 bg-[#008DD5] transition-all duration-300 -translate-x-1/2 {{ request()->routeIs('contacto.*') ? 'w-full' : 'w-0 group-hover:w-full' }}"></span>
+            </li>
+
+            <!-- Admin -->
+            <li class="relative group">
+                @auth
+                    @if (auth()->user()->is_admin)
+                        <a href="{{ route('admin.dashboard') }}"
+                           class="text-sm uppercase tracking-wider font-medium transition-colors duration-300 {{ request()->routeIs('admin.*') ? 'text-[#008DD5]' : 'hover:text-[#008DD5]' }}">
+                            Admin
+                        </a>
+                    @else
+                        <div class="relative group">
+                            <span class="text-sm uppercase tracking-wider font-medium transition-colors duration-300 hover:text-[#008DD5] cursor-pointer">{{ auth()->user()->name }}</span>
+
+                            <form action="{{ route('logout') }}" method="POST" class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded hidden group-hover:block">
+                                @csrf
+                                <button type="submit" class="w-full mt-0 pb-2 rounded-md border border-white/10 px-4 py-3 text-left text-sm font-semibold text-gray-300 transition hover:border-red-400/40 hover:bg-red-500/10 hover:text-red-100">
+                                    Cerrar sesion
+                                </button>
+                            </form>
+                        </div>
+
+                    @endif
+                @else
+                    <a href="{{ route('login') }}"
+                       class="text-sm uppercase tracking-wider font-medium transition-colors duration-300 {{ request()->routeIs('login') ? 'text-[#008DD5]' : 'hover:text-[#008DD5]' }}">
+                        Login
+                    </a>
+                @endauth
+                <span class="absolute -bottom-1 left-1/2 h-0.5 bg-[#008DD5] transition-all duration-300 -translate-x-1/2 {{ request()->routeIs('login', 'admin.*') ? 'w-full' : 'w-0 group-hover:w-full' }}"></span>
             </li>
 
             <!-- Carrito -->
