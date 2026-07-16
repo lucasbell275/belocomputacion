@@ -37,14 +37,56 @@
                     <input type="text" id="nombre" name="nombre">
                 </label>
 
-                <label for="descripcion">
-                    Descripcion correspondiente
-                    <input type="textarea" id="descripcion" name="descripcion">
+                <label for="bateria">
+                    Bateria
+                    <input type="text" id="bateria" name="bateria">
                 </label>
-                <label for="marca">
-                    Marca
-                    <input type="text" id="marca" name="marca">
+                <label for="pantalla">
+                    Pantalla
+                    <input type="text" id="pantalla" name="pantalla">
                 </label>
+
+                <label for="almacenamiento">
+                    Almacenamiento
+                    <input type="text" id="almacenamiento" name="almacenamiento">
+                </label>
+
+                <label for="fuente">
+                    Fuente de Alimentacion
+                    <input type="text" id="fuente" name="fuente">
+                </label>
+
+                <label for="motherboard">
+                    Placa Madre
+                    <input type="text" id="motherboard" name="motherboard">
+                </label>
+                
+                <label for="ram">
+                    RAM
+                    <input type="text" id="ram" name="ram">
+                </label>
+                
+                <label for="cpu">
+                    Procesador
+                    <input type="text" id="cpu" name="cpu">
+                </label>
+
+
+                <label for="gpu">
+                    Placa de Video
+                    <input type="text" id="gpu" name="gpu">
+                </label>
+                <div>
+                    <p>Selecciona la marca de la computadora</p>
+                    <select name="marca_id" id="marca_id">
+                        <option value="">Selecciona la marca de la computadora</option>
+                        @foreach($marcas as $marca)
+                            <option value="{{ $marca->id }}">{{ $marca->nombre }}</option>
+                        @endforeach
+
+                    </select>
+                </div>
+
                 <label for="imagen">
                     Imagen
                     <input type="file" id="imagen" name="imagen">
@@ -65,6 +107,7 @@
                     Oferta
                     <input class="" type="checkbox" id="oferta" name="oferta">
                 </label>
+
                 
                 {{-- Boton de enviar formulario --}}
                 <button class="font-bold text-[16px] bg-white rounded-lg py-2 text-black w-sm mt-auto py-2 px-4 mx-auto  text-center hover:bg-[#006fa3] transition-colors duration-300" type="submit">

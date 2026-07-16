@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InfoCompu;
+use App\Models\Marca;
 use App\Models\Computadora;
 use Illuminate\Http\Request;
 
@@ -20,7 +22,7 @@ class ComputadoraController extends Controller
         }
         if (request('marcas')) {
             $marcas = request('marcas');
-            $computadora = Computadora::where('marca', $marcas)->paginate(12); 
+            $computadora = Computadora::where('marca_id', $marcas)->paginate(12); 
             return view('computadora.index', compact('computadora')); 
         }
         if (request('oferta')) {
@@ -39,7 +41,8 @@ class ComputadoraController extends Controller
      */
     public function create()
     {
-            return view('computadora.create');
+            $marcas = Marca::all();
+            return view('computadora.create', compact('marcas'));
     }
 
     /**
@@ -49,24 +52,36 @@ class ComputadoraController extends Controller
     {
         $request->validate([
         'nombre'=> 'required',
-        'descripcion'=> 'nullable',
-        'marca'=> 'required',
-        'imagen'=> 'required|image',
+        'marca_id'=> 'required',
         'precio'=> 'required|numeric',
+        'imagen'=> 'required|image',
         'stock'=> 'required|integer',
         'slug'=> 'required',
         'oferta'=> 'nullable',
         ]);
         
+        $specs = [
+            'Procesador' => $request->cpu,
+            'Placa de Video' => $request->gpu,
+            'Memoria RAM' => $request->ram,
+            'Fuente de Alimentacion' => $request->fuente,
+            'Bateria' => $request->bateria,
+            'Pantalla' => $request->pantalla,
+            'Almacenamiento' => $request->almacenamiento,
+            'Placa Madre' => $request->motherboard,
+        ];
+
+
+
+
         $pathImagen = $request->file('imagen')->store('images/computadora', 'public');
 
         $oferta = $request->has('oferta') ? 1 : 0;
 
-        Computadora::create([
+        $computadora = Computadora::create([
         
         'nombre'=>$request->nombre,
-        'descripcion'=>$request->descripcion,
-        'marca'=>$request->marca,
+        'marca_id'=>$request->marca_id,
         'imagen'=>$pathImagen,
         'precio'=>$request->precio,
         'stock'=>$request->stock,
@@ -74,6 +89,16 @@ class ComputadoraController extends Controller
         'oferta'=>$oferta,
         ]);
 
+        
+        foreach ($specs as $nombre => $valor) {
+            if ($valor) {
+                InfoCompu::create([
+                    'computadora_id' => $computadora->id,
+                    'nombre' => $nombre,
+                    'valor' => $valor,
+                ]);
+            }
+        }
         return redirect()->route('computadoras.index');
     }
 
@@ -82,6 +107,7 @@ class ComputadoraController extends Controller
      */
     public function show(Computadora $computadora)
     {
+        $computadora->load('infoCompus');
         return view('computadora.show', compact('computadora'));
     }
 
@@ -90,7 +116,10 @@ class ComputadoraController extends Controller
      */
     public function edit(Computadora $computadora)
     {
-        return view('computadora.edit', compact('computadora'));
+        $marcas = Marca::all();
+
+        $computadora->load('infoCompus');
+        return view('computadora.edit', compact('computadora', 'marcas'));
     }
 
     /**
@@ -100,8 +129,7 @@ class ComputadoraController extends Controller
     {
         $request->validate([
         'nombre'=> 'required',
-        'descripcion'=> 'nullable',
-        'marca'=> 'required',
+        'marca_id'=> 'required',
         'imagen'=> 'nullable|image',
         'precio'=> 'required|numeric',
         'stock'=> 'required|integer',
@@ -116,17 +144,41 @@ class ComputadoraController extends Controller
         
         };
 
-        $oferta = $request->has('oferta') ? 1 : 0;
 
         $computadora->nombre = $request->nombre;
-        $computadora->descripcion = $request->descripcion;
-        $computadora->marca = $request ->marca;
+        $computadora->marca_id = $request ->marca_id;
         $computadora->precio = $request->precio;
         $computadora->stock = $request->stock;
         $computadora->slug = $request->slug;
+        $oferta = $request->has('oferta') ? 1 : 0;
         $computadora->oferta = $oferta;
-
         $computadora->save();
+
+        $computadora->infoCompus()->delete();
+        $specs = [
+            'Procesador' => $request->cpu,
+            'Placa de Video' => $request->gpu,
+            'Memoria RAM' => $request->ram,
+            'Fuente de Alimentacion' => $request->fuente,
+            'Bateria' => $request->bateria,
+            'Pantalla' => $request->pantalla,
+            'Almacenamiento' => $request->almacenamiento,
+            'Placa Madre' => $request->motherboard,
+        ];
+
+        foreach ($specs as $nombre => $valor) {
+            if ($valor) {
+                InfoCompu::create([
+                    'computadora_id' => $computadora->id,
+                    'nombre' => $nombre,
+                    'valor' => $valor,
+                ]);
+            }
+        }
+        
+
+
+
         return redirect()->route('computadoras.index');
     }
     /**

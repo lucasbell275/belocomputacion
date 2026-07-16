@@ -20,7 +20,7 @@
                     <div class="bg-[#3a3d4c] rounded-xl  p-6 py-8  hover:border-2 hover:border-sky-500 transition-all duration-300 flex flex-col gap-1 font-semibold  text-gray-300 pt-2  ">  
                         <h2>{{ $computadoras->nombre }}</h2>
                         <p class="line-clamp-3">{{$computadoras->descripcion}}</p>
-                        <p>Marca: {{$computadoras->marca}}</p>
+                        {{-- <p>Marca: {{$computadoras->marca}}</p> --}}
 
                         <div class="h-48 overflow-hidden flex items-center justify-center">
                             <img class="w-full object-contain" src="{{Storage::url($computadoras->imagen)}}" alt="">

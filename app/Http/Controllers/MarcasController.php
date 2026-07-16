@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Computadora;
+use App\Models\Marca;
 
 class MarcasController extends Controller
 {
@@ -13,7 +14,7 @@ class MarcasController extends Controller
     public function index()
     {
         return view('marcas', [
-        'marcas' => Computadora::distinct()->pluck('marca'),
+        'marcas' => Marca::all(),
         ]);
 
     }
@@ -23,7 +24,8 @@ class MarcasController extends Controller
      */
     public function create()
     {
-        //
+        $marcas = Marca::all();
+        return view('computadora.create', compact('marcas'));
     }
 
     /**
@@ -45,9 +47,11 @@ class MarcasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Computadora $computadora)
     {
-        //
+        $marcas = Marca::all();
+        $computadora->load('infoCompus');
+        return view('computadora.edit', compact('computadora', 'marcas'));
     }
 
     /**

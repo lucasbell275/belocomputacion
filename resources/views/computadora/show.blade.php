@@ -6,7 +6,7 @@
             {{-- Campos del registro deseado --}}
             <h2>{{ $computadora->nombre }}</h2>
             <p>{{$computadora->descripcion}}</p>
-            <p>Marca: {{$computadora->marca}}</p>
+            {{-- <p>Marca: {{$computadora->marca}}</p> --}}
             {{-- <p><img class="  "src="{{Storage::url($computadora->imagen)}}" alt=""></p> --}}
             
                     <img class="bg-[#3a3d4c] rounded-xl  p-6 py-8  hover:border-2 hover:border-sky-500 transition-all duration-300 w-xl h-auto " src="{{Storage::url($computadora->imagen)}}" alt="">
@@ -16,6 +16,15 @@
                 <strong>¡En oferta!</strong>
             @endif
             </p>
+            {{-- Especificaciones de computadora --}}
+            <div class="grid grid-cols-2 gap-4">
+
+                @foreach ($computadora->infoCompus as $spec)
+                    <p >{{ $spec->nombre }}: {{ $spec->valor }}</p>
+                @endforeach
+
+            </div>
+
             <p> {{$computadora->stock}} unidades en stock</p>
 
             @auth

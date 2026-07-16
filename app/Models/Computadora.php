@@ -14,8 +14,7 @@ class Computadora extends Model
     
     protected $fillable = [
         'nombre',
-        'descripcion',
-        'marca',
+        'marca_id',
         'imagen',
         'precio',
         'stock',
@@ -23,4 +22,12 @@ class Computadora extends Model
         'oferta',
 
     ];
+
+    public function infoCompus(){
+        return $this->hasMany(InfoCompu::class);
+    }
+
+    public function marca(){
+        return $this->belongsTo(Marca::class);
+    }
 }

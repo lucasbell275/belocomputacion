@@ -34,10 +34,58 @@
                     Descripcion correspondiente
                     <textarea id="descripcion" name="descripcion">{{$computadora->descripcion}}</textarea>
                 </label>
-                <label for="marca">
-                    Marca
-                    <input type="text" id="marca" name="marca" value="{{$computadora->marca}}">
+                <label for="bateria">
+                    Bateria
+                    <input type="text" id="bateria" name="bateria" value="{{$computadora->infoCompus->where('nombre', 'Bateria')->first()?->valor}}">
                 </label>
+                <label for="pantalla">
+                    Pantalla
+                    <input type="text" id="pantalla" name="pantalla" value="{{$computadora->infoCompus->where('nombre', 'Pantalla')->first()?->valor}}">
+                </label>
+
+                <label for="almacenamiento">
+                    Almacenamiento
+                    <input type="text" id="almacenamiento" name="almacenamiento" value="{{$computadora->infoCompus->where('nombre', 'Almacenamiento')->first()?->valor}}">
+                </label>
+
+                <label for="fuente">
+                    Fuente de Alimentacion
+                    <input type="text" id="fuente" name="fuente" value="{{$computadora->infoCompus->where('nombre', 'Fuente de Alimentacion')->first()?->valor}}">
+                </label>
+
+                <label for="motherboard">
+                    Placa Madre
+                    <input type="text" id="motherboard" name="motherboard" value="{{$computadora->infoCompus->where('nombre', 'Placa Madre')->first()?->valor}}">
+                </label>
+                
+                <label for="ram">
+                    RAM
+                    <input type="text" id="ram" name="ram" value="{{$computadora->infoCompus->where('nombre', 'Memoria RAM')->first()?->valor}}">
+                </label>
+                
+                <label for="cpu">
+                    Procesador
+                    <input type="text" id="cpu" name="cpu" value="{{$computadora->infoCompus->where('nombre', 'Procesador')->first()?->valor}}">
+                </label>
+
+
+                <label for="gpu">
+                    Placa de Video
+                    <input type="text" id="gpu" name="gpu" value="{{$computadora->infoCompus->where('nombre', 'Placa de Video')->first()?->valor}}">
+                </label>
+                <div>
+                    <p>Selecciona la marca de la computadora</p>
+                    <select name="marca_id" id="marca_id">
+                        <p>Selecciona la marca de la computadora</p>
+                        @foreach ($marcas as $marca)
+                            <option value="{{$marca->id}}"
+                                {{$computadora->marca_id == $marca->id ? 'selected' : ''}}
+                            >{{$marca->nombre}}
+                            </option>
+
+                        @endforeach
+                    </select>
+                </div>
                 <label for="imagen">
                     Imagen
                     <input type="file" id="imagen" name="imagen">
