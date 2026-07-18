@@ -30,6 +30,7 @@ Route::post('/contacto', [ContactoController::class, 'store'])->name('contacto.s
 Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
     Route::redirect('/', '/admin/dashboard')->name('index');
     Route::get('/dashboard', [RoleController::class, 'dashboard'])->name('dashboard');
+    Route::get('/indcompus', [ComputadoraController::class, 'AdminIndex'])->name('computadoras');
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {

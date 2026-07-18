@@ -36,6 +36,11 @@ class ComputadoraController extends Controller
         };
         }
 
+    public function AdminIndex(){
+        $computadora = Computadora::with('marca')->paginate(12);
+        return view('admin.computadoras', compact('computadora'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
