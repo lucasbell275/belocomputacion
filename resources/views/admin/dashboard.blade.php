@@ -17,7 +17,7 @@
                         Dashboard
                     </a>
               
-                    <a href="/computadoras/create" class="flex items-center rounded-md px-4 py-3 text-sm font-semibold text-gray-300 transition hover:bg-white/10 hover:text-white">
+                    <a href="{{route('admin.computadoras')}}" class="flex items-center rounded-md px-4 py-3 text-sm font-semibold text-gray-300 transition hover:bg-white/10 hover:text-white">
                         computadoras
                     </a>
               
