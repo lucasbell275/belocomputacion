@@ -62,6 +62,7 @@ class ComputadoraController extends Controller
         'imagen'=> 'required|image',
         'stock'=> 'required|integer',
         'slug'=> 'required',
+        'descuento'=>'nullable',
         'oferta'=> 'nullable',
         ]);
         
@@ -89,6 +90,7 @@ class ComputadoraController extends Controller
         'marca_id'=>$request->marca_id,
         'imagen'=>$pathImagen,
         'precio'=>$request->precio,
+        'descuento'=>$request->descuento,
         'stock'=>$request->stock,
         'slug'=>$request->slug,
         'oferta'=>$oferta,
@@ -137,6 +139,7 @@ class ComputadoraController extends Controller
         'marca_id'=> 'required',
         'imagen'=> 'nullable|image',
         'precio'=> 'required|numeric',
+        'descuento'=> 'nullable',
         'stock'=> 'required|integer',
         'slug'=> 'required',
         'oferta'=> 'nullable',
@@ -153,6 +156,7 @@ class ComputadoraController extends Controller
         $computadora->nombre = $request->nombre;
         $computadora->marca_id = $request ->marca_id;
         $computadora->precio = $request->precio;
+        $computadora->descuento = $request->descuento;
         $computadora->stock = $request->stock;
         $computadora->slug = $request->slug;
         $oferta = $request->has('oferta') ? 1 : 0;

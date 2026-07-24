@@ -5,7 +5,7 @@
         <div class=" flex flex-col gap-5 text-center items-center font-semibold  text-gray-300 pt-2  ">
             {{-- Campos del registro deseado --}}
             <h2>{{ $computadora->nombre }}</h2>
-            <p>{{$computadora->descripcion}}</p>
+
             {{-- <p>Marca: {{$computadora->marca}}</p> --}}
             {{-- <p><img class="  "src="{{Storage::url($computadora->imagen)}}" alt=""></p> --}}
             
@@ -14,6 +14,7 @@
             <p>Precio: {{$computadora->precio}}
             @if ($computadora->oferta)
                 <strong>¡En oferta!</strong>
+                {{$computadora->precio - ($computadora->precio * $computadora->descuento / 100)}}
             @endif
             </p>
             {{-- Especificaciones de computadora --}}

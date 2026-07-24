@@ -17,6 +17,7 @@ class Computadora extends Model
         'marca_id',
         'imagen',
         'precio',
+        'descuento',
         'stock',
         'slug',
         'oferta',

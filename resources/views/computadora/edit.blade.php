@@ -94,6 +94,10 @@
                     Precio correspondiente
                     <input type="number" id="precio" name="precio" value="{{$computadora->precio}}">
                 </label>
+                <label for="descuento">
+                    Descuento
+                    <input type="number" id="descuento" name="descuento" value="{{$computadora->descuento}}">
+                </label>
                 <label for="stock">
                     Stock
                     <input type="number" id="stock" name="stock" value="{{$computadora->stock}}">

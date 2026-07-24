@@ -56,6 +56,8 @@
                     <input type="text" id="fuente" name="fuente">
                 </label>
 
+
+
                 <label for="motherboard">
                     Placa Madre
                     <input type="text" id="motherboard" name="motherboard">
@@ -95,6 +97,12 @@
                     Precio correspondiente
                     <input type="number" id="precio" name="precio">
                 </label>
+
+                <label for="descuento">
+                    Descuento (%)
+                    <input type="number" id="descuento" name="descuento">
+                </label>
+
                 <label for="stock">
                     Stock
                     <input type="number" id="stock" name="stock">
