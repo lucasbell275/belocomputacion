@@ -52,6 +52,21 @@
             @endforeach
             
         </div>
+        <div class="pt-2 px-2 flex flex-col">
+            <form action="{{route('computadoras.index')}}" method="GET">
+             
+            <label for="precioMin" class="text-gray-300 bg-transparent">
+                Precio minimo
+                <input type="number" id="precioMin" name="precioMin" class="bg-transparent border border-gray-600 hover:border-[#008DD5] focus:border-[#008DD5] rounded-lg outline-none px-1">
+            </label>
+
+            <label for="precioMax" class="text-gray-300 bg-transparent">
+                Precio maximo
+                <input type="number" id="precioMax" name="precioMax" class="bg-transparent border border-gray-600 rounded-lg hover:border-[#008DD5] focus:border-[#008DD5] outline-none px-1">
+            </label>
+            <button type="submit" class="font-bold text-[16px] bg-white rounded-lg py-2 text-black w-1/16 py-2 px-2 text-center hover:bg-[#006fa3] transition-colors duration-300">Filtrar</button>
+            </form>
+        </div>
         <div class=" self-center py-8 pr-10">
             {{ $computadora->links() }}
         </div>

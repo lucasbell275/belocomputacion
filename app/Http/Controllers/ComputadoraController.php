@@ -20,6 +20,14 @@ class ComputadoraController extends Controller
             
             return view('computadora.index', compact('computadora')); 
         }
+        if (request('precioMin') && request('precioMax')){
+            $precioMin = request('precioMin');
+            $precioMax = request('precioMax');
+
+            $computadora = Computadora::whereBetween('precio', [$precioMin, $precioMax])->paginate(12);
+
+            return view('computadora.index', compact('computadora'));
+        }
         if (request('marcas')) {
             $marcas = request('marcas');
             $computadora = Computadora::where('marca_id', $marcas)->paginate(12); 

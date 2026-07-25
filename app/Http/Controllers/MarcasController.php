@@ -24,8 +24,7 @@ class MarcasController extends Controller
      */
     public function create()
     {
-        $marcas = Marca::all();
-        return view('computadora.create', compact('marcas'));
+
     }
 
     /**
@@ -49,9 +48,7 @@ class MarcasController extends Controller
      */
     public function edit(Computadora $computadora)
     {
-        $marcas = Marca::all();
-        $computadora->load('infoCompus');
-        return view('computadora.edit', compact('computadora', 'marcas'));
+
     }
 
     /**
