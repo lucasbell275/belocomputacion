@@ -1,4 +1,4 @@
-<footer class="bg-[#373F51] shadow-[0_-10px_20px_rgba(0,0,0,0.007)] border-t-2 border-white/3 mt-10">
+<footer class="bg-[#373F51] shadow-[0_-10px_20px_rgba(0,0,0,0.007)] border-t-2 border-white/3 mt-auto">
     <div class="flex flex-row items-start gap-20 pt-2 pl-20">
         {{-- MARCAS GPU --}}
         <div class="pt-20 flex flex-col gap-4">

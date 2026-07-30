@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" class="overflow-x-hidden">
     @push('css')
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
@@ -18,9 +18,13 @@
     @stack('css')
     @stack('scripts')
 </head>
-<body class="min-h-screen @yield('body_class', 'bg-[#252836]')">
+<body class=" overflow-x-hidden @yield('body_class', 'bg-[#252836]')">
     @include('components.header')
-    @yield('content')
+    <main class="min-h-screen">
+        @yield('content')
+
+    </main>
+
     @include('components.footer')
 </body>
 </html>

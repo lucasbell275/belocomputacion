@@ -1,32 +1,26 @@
 @extends('layouts.app')
-@push('css')
-    <style>
-
-    </style>
-    
-@endpush
 
 @push('scripts')
     
 @endpush
 @section('content')
 
-        <main class="flex flex-row h-full">
+        <main class="flex flex-col md:flex md:flex-row h-full">
             <div class="container mx-auto py-45 px-5 text-[#008DD5] flex flex-col items-start gap-3 flex-grow">
                 <div class="inline-block">
                     {{-- Titulo de la empresa --}}
-                    <h1 class="font-['Bebas_Neue'] text-[100px] leading-tight tracking-[0.04em]">belocomputacion</h1>
-                    <span class="block h-1 bg-[#008DD5] -mt-5"></span>
+                    <h1 class="font-['Bebas_Neue'] text-3xl md:text-[100px] leading-tight tracking-[0.04em]">belocomputacion</h1>
+                    <span class="block h-1 bg-[#008DD5] md:-mt-5"></span>
                 </div>
                 {{-- "Eslogan" --}}
-                <p class=" text-xl font-semibold text-gray-300">La computadora de tus sueños, a un solo click.</p>
+                <p class=" text-sm md:text-xl font-semibold text-gray-300">La computadora de tus sueños, a un solo click.</p>
                 
             </div>
 
             {{-- Carrusel ofertas --}}
             <div class=" px-25 py-5">
                 
-                <div class="container  relative overflow-hidden w-[500px] h-[500px] bg-[#3a3d4c] rounded-lg hover:scale-105 transition-transform duration-300 ">
+                <div class="container  relative overflow-hidden w-full h-64 md:w-[500px] md:h-[500px] bg-[#3a3d4c] rounded-lg hover:scale-105 transition-transform duration-300 ">
  
 
                     <div

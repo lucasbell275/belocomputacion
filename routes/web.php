@@ -6,7 +6,8 @@ use App\Http\Controllers\MarcasController;
 use App\Http\Controllers\OfertaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactoController;
-use App\Http\Controllers\RoleController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\MarcasController as AdminMarcasController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -31,6 +32,7 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::redirect('/', '/admin/dashboard')->name('index');
     Route::get('/dashboard', [RoleController::class, 'dashboard'])->name('dashboard');
     Route::get('/indcompus', [ComputadoraController::class, 'AdminIndex'])->name('computadoras');
+    Route::resource('/marcas', AdminMarcasController::class);
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
