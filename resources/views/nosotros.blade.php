@@ -15,7 +15,7 @@
         <div class=" flex flex-col items-start py-20 pl-20 gap-3  ">
             <div>
                 {{-- Titulo de la empresa --}}
-                <h1 class="font-['Bebas_Neue'] text-[60px] leading-tight tracking-[0.04em] text-[#008DD5]">belocomputacion</h1>
+                <h1 class="font-['Bebas_Neue'] text-[60px] leading-tight tracking-[0.04em] text-[#008DD5]">{{$nosotros->titulo}}</h1>
                 <span class="block h-1 bg-[#008DD5] -mt-4"></span>
             </div>
 

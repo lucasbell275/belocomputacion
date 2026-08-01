@@ -56,7 +56,7 @@
 
                 <!--  Nosotros -->
                 <li class="relative group">
-                    <a href="{{ route('nosotros') }}" 
+                    <a href="{{ route('nosotros.index') }}" 
                     class="text-sm uppercase tracking-wider font-medium transition-colors duration-300 {{ request()->routeIs('nosotros') ? 'text-[#008DD5]' : 'hover:text-[#008DD5]' }}">
                         Nosotros
                     </a>

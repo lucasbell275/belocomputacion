@@ -6,7 +6,7 @@
 @section('content')
     <main class="min-h-screen bg-[#252836] text-white">
         <div class="flex min-h-[calc(100vh-112px)]">
-            <aside class="w-72 shrink-0 border-r border-white/10 bg-[#1f2230] px-5 py-6">
+            <aside class="w-72 min-h-screen shrink-0 border-r border-white/10 bg-[#1f2230] px-5 py-6">
                 <div class="mb-8">
                     <p class="font-['Bebas_Neue'] text-3xl tracking-wide text-[#008DD5]">belocomputacion</p>
                     <p class="text-sm text-gray-400">Administracion</p>
@@ -18,10 +18,10 @@
                     </a>
               
                     <a href="{{route('admin.computadoras')}}" class="flex items-center rounded-md px-4 py-3 text-sm font-semibold text-gray-300 transition hover:bg-white/10 hover:text-white">
-                        computadoras
+                        Computadoras
                     </a>
                     <a href="{{route('admin.marcas.index')}}" class="flex items-center rounded-md px-4 py-3 text-sm font-semibold text-gray-300 transition hover:bg-white/10 hover:text-white">
-                        marcas
+                        Marcas
                     </a>
               
                     
@@ -65,11 +65,16 @@
                     </article>
                 </div>
 
-                <div class="mt-8 rounded-lg border border-white/10 bg-[#373F51] p-6">
+                <div class="flex flex-col mt-8 rounded-lg border border-white/10 bg-[#373F51] p-6 gap-2">
                     <h2 class="text-xl font-bold">Panel principal</h2>
                     <p class="mt-2 max-w-2xl text-gray-300">
                         Este espacio queda preparado para conectar los componentes CRUD de administracion de la pagina.
                     </p>
+
+                        <a href="{{route('computadoras.create')}}" class="transition duration-500 hover:text-[#008DD5] hover:text-[17px] hover:border-b hover:w-fit">Agregar computadoras nuevas</a>
+                        <a href="{{route('admin.marcas.create')}}" class="transition duration-500 hover:text-[#008DD5] hover:text-[17px] hover:border-b hover:w-fit">Agregar marcas nuevas</a>
+                        <a href=""></a>
+
                 </div>
             </section>
         </div>

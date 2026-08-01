@@ -7,14 +7,12 @@ use App\Http\Controllers\OfertaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\NosotrosController;
 use App\Http\Controllers\Admin\MarcasController as AdminMarcasController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/nosotros', function () {
-    return view('nosotros');
-})->name('nosotros');
-
+Route::get('/nosotros', [NosotrosController::class, 'index']);
 Route::get('/login', [RoleController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [RoleController::class, 'login'])->name('login.store');
 Route::post('/logout', [RoleController::class, 'logout'])->name('logout');
