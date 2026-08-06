@@ -23,7 +23,9 @@
                     <a href="{{route('admin.marcas.index')}}" class="flex items-center rounded-md px-4 py-3 text-sm font-semibold text-gray-300 transition hover:bg-white/10 hover:text-white">
                         Marcas
                     </a>
-              
+                    <a href="{{route('admin.nosotros.edit', 1)}}" class="flex items-center rounded-md px-4 py-3 text-sm font-semibold text-gray-300 transition hover:bg-white/10 hover:text-white">
+                        Nosotros
+                    </a>
                     
                 </nav>
 

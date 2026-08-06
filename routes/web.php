@@ -9,10 +9,11 @@ use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\NosotrosController;
 use App\Http\Controllers\Admin\MarcasController as AdminMarcasController;
+use App\Models\Nosotros;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/nosotros', [NosotrosController::class, 'index']);
+Route::get('/nosotros', [NosotrosController::class, 'index'])->name('nosotros');
 Route::get('/login', [RoleController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [RoleController::class, 'login'])->name('login.store');
 Route::post('/logout', [RoleController::class, 'logout'])->name('logout');
@@ -31,6 +32,7 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/dashboard', [RoleController::class, 'dashboard'])->name('dashboard');
     Route::get('/indcompus', [ComputadoraController::class, 'AdminIndex'])->name('computadoras');
     Route::resource('/marcas', AdminMarcasController::class);
+    Route::resource('/nosotros', NosotrosController::class)->only(['edit', 'update']);
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {

@@ -8,7 +8,7 @@
 
         <!--  Busqueda -->
         <input type="checkbox" id="habilitar-busqueda" class="hidden peer">
-        <label for="habilitar-busqueda" class="cursor-pointer md:hidden">
+        <label for="habilitar-busqueda" class="cursor-pointer md:hidden text-white font-bold">
         Buscar
         </label>
         <form action="{{route('computadoras.index')}}" method="GET" class="hidden peer-checked:block md:flex peer-checked:w-full">        
@@ -19,9 +19,9 @@
  
 <!-- Navegacion -->
         <div class=" md:static">
-            <input type="checkbox" id="habilitar-menu" class="hidden peer hover:text-[#008DD5]">
+            <input type="checkbox" id="habilitar-menu" class="hidden peer text-[#008DD5]">
 
-            <label for="habilitar-menu" class="cursor-pointer md:hidden text-white hover:text-[#008DD5] peer-checked:text-[#008DD5]">
+            <label for="habilitar-menu" class="cursor-pointer md:hidden  text-[#008DD5] peer-checked:text-white">
                 ☰
             </label>
             
@@ -56,7 +56,7 @@
 
                 <!--  Nosotros -->
                 <li class="relative group">
-                    <a href="{{ route('nosotros.index') }}" 
+                    <a href="{{ route('nosotros') }}" 
                     class="text-sm uppercase tracking-wider font-medium transition-colors duration-300 {{ request()->routeIs('nosotros') ? 'text-[#008DD5]' : 'hover:text-[#008DD5]' }}">
                         Nosotros
                     </a>

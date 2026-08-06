@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactoMailable;
+use App\Models\IntentoContacto;
+
 class ContactoController extends Controller
 {
     public function index()
@@ -23,8 +25,9 @@ class ContactoController extends Controller
             'mensaje' => 'required',
         ]);
 
-        // Aquí puedes agregar la lógica para enviar el correo electrónico utilizando ContactoMailable
-        Mail::to('lucasbell@gmail.com')->send(new ContactoMailable($request)); 
+        // Aca se agrega el codigo para enviar el correo electrónico utilizando ContactoMailable
+        Mail::to('lucasbell@gmail.com')->send(new ContactoMailable($request));
+        IntentoContacto::create($request->all());
        return redirect()->route('contacto.index');
     }
 }

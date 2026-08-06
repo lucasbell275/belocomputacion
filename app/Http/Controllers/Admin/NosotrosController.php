@@ -23,17 +23,31 @@ class NosotrosController extends Controller
         return redirect()->route('nosotros');
     }
 
+    public function edit(Nosotros $nosotros){
+        $nosotros = Nosotros::first();
+        return view('admin.nosotros.edit', compact('nosotros'));
+    }
+
     public function update(Request $request, Nosotros $nosotros){
+        $nosotros = Nosotros::first();
         $request->validate([
            'titulo'=>'required',
            'descripcion'=>'required',
-           'imagen'=>'required|image' 
+           'imagen'=>'nullable|image' 
         ]);
-        $nosotros->update([
-            'titulo'=> $request->titulo,
-            'descripcion'=> $request->descripcion,
-            'imagen'=> $request->imagen
+        
+        if ($request->hasFile('imagen')){
+            $imagen = $request->file('imagen')->store('images/nosotros', 'public');
+            $nosotros->imagen = $imagen;
 
-        ]);
+        }
+        $nosotros->titulo = $request->titulo;
+        $nosotros->descripcion = $request->descripcion;
+        $nosotros->save();
+
+        
+
+
+        return redirect()->route('nosotros');
     }
 }
