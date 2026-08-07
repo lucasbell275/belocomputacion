@@ -20,7 +20,7 @@
             <label for="apellido">Apellido:</label>
             <input type="text" name="apellido" id="apellido" placeholder="Apellido">
             <label for="numtelefono">Teléfono:</label>
-            <input type="number" name="numtelefono" id="numtelefono" placeholder="Teléfono">
+            <input type="number" name="telefono" id="telefono" placeholder="Teléfono">
             <label for="razon">Motivo de consulta:</label>
             <input type="text" name="razon" id="razon" placeholder="Motivo de consulta">
             <label for="mensaje">Mensaje:</label>

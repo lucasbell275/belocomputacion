@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\IntentoContacto;
 use Illuminate\Http\Request;
 
-class IntentoContacto extends Controller
+class IntentoContactoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $intento = IntentoContacto::paginate(12);
+        return view('intentoContacto.index', compact('intento'));
     }
 
     /**
@@ -20,7 +21,7 @@ class IntentoContacto extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
