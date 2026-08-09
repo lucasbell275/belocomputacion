@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use App\Models\IntentoContacto;
 use Illuminate\Http\Request;
 
@@ -13,7 +13,7 @@ class IntentoContactoController extends Controller
     public function index()
     {
         $intento = IntentoContacto::paginate(12);
-        return view('intentoContacto.index', compact('intento'));
+        return view('admin.intentoContacto.index', compact('intento'));
     }
 
     /**

@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\NosotrosController;
 use App\Http\Controllers\Admin\MarcasController as AdminMarcasController;
+use App\Http\Controllers\Admin\IntentoContactoController as IntentoContactoController;
 use App\Models\Nosotros;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -33,6 +34,7 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('/indcompus', [ComputadoraController::class, 'AdminIndex'])->name('computadoras');
     Route::resource('/marcas', AdminMarcasController::class);
     Route::resource('/nosotros', NosotrosController::class)->only(['edit', 'update']);
+    Route::resource('/contactosind', IntentoContactoController::class);
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
