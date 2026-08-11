@@ -15,4 +15,9 @@ class IntentoContacto extends Model
         'razon',
         'mensaje',
     ];
+
+        public function getRouteKeyName()
+    {
+        return 'id';
+    }
 }

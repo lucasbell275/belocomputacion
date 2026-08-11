@@ -35,9 +35,10 @@ class IntentoContactoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(IntentoContacto $intentoContacto)
+    public function show($contactosind)
     {
-        //
+        $intentoContacto = IntentoContacto::findOrFail($contactosind);
+        return view('admin.intentoContacto.show', compact('intentoContacto'));
     }
 
     /**
