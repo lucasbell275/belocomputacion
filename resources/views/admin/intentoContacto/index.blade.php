@@ -12,7 +12,7 @@
                 </div>
                 <div class="">
                     <p class="line-clamp-2 p-2">Mensaje: {{$intento -> mensaje}}</p>
-                    <a href="{{route('admin.contactosind.show', $intento -> id)}}">Mostrar</a>
+                    <a href="{{route('admin.contactosind.show', $intento -> id)}}" class="flex justify-center transition hover:bg-white/10 hover:text-white">Mostrar</a>
                 </div>
             </div>
         @endforeach
