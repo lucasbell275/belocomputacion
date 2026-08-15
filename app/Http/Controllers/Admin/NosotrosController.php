@@ -11,6 +11,7 @@ class NosotrosController extends Controller
     public function index(){
         $nosotros = Nosotros::first();
         return view('nosotros', compact('nosotros'));
+        return view('contacto.contactoform');
     }
 
     public function store(Request $request){

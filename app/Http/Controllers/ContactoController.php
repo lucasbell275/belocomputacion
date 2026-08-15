@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Nosotros;
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactoMailable;
 use App\Models\IntentoContacto;
 
+
 class ContactoController extends Controller
 {
     public function index()
     {
-        return view('contacto.contactoform');
+        $nosotros = Nosotros::first();
+        return view('contacto.contactoform', compact('nosotros'));
     }
 
 

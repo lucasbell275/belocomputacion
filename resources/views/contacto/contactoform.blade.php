@@ -13,7 +13,30 @@
 @endpush
 @section('content')
     <main class="h-screen">
-        <div class="max-w-2xl mx-auto">
+        <div class="max-w-full mx-auto flex flex-row gap-8">
+                <div class="max-w-xl">
+                    <div class="inline-block">
+                        
+                        {{-- Titulo de la empresa --}}
+                        <h1 class="font-['Bebas_Neue'] text-[50px] md:text-[60px] leading-tight tracking-[0.04em] text-[#008DD5] ">{{$nosotros->titulo}}</h1>
+                        <span class="block h-1 bg-[#008DD5] -mt-4"></span>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex flex-row">
+                            <img src="{{asset('images\contacto\pin-celeste.png')}}" alt="" class="max-h-[24px] pl-2">                
+                            <p class="text-white">Av. Castañares 4600, Ciudad Autonoma de Buenos Aires</p>
+
+                        </div>
+                        <div class="flex flex-row">
+                            <img src="{{asset('images\contacto\llamada-celeste.png')}}" alt="" class="max-h-[24px]">
+                            <p class="text-white">11 2234-6678</p>
+                        </div>
+                        <div class="flex flex-row">
+                            <img src="{{asset('images\contacto\email-celeste.png')}}" alt="" class="max-h-[24px]">
+                            <p class="text-white">belocomputacion@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
             <form action="{{route('contacto.store')}}" method="POST" class=" grid grid-cols-2 text-[15.4px] font-semibold text-gray-300 pt-10 px-3 gap-4">
                 @if($errors->any())
                     @foreach($errors->all() as $error)
