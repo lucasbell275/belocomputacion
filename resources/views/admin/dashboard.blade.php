@@ -5,7 +5,7 @@
 
 @section('content')
     <main class="min-h-screen bg-[#252836] text-white">
-        <div class="flex min-h-[calc(100vh-112px)]">
+        {{-- <div class="flex min-h-[calc(100vh-112px)]">
             <aside class="w-72 min-h-screen shrink-0 border-r border-white/10 bg-[#1f2230] px-5 py-6">
                 <div class="mb-8">
                     <p class="font-['Bebas_Neue'] text-3xl tracking-wide text-[#008DD5]">belocomputacion</p>
@@ -36,9 +36,9 @@
                         Cerrar sesion
                     </button>
                 </form>
-            </aside>
+            </aside> --}}
 
-            <section class="flex-1 px-8 py-8">
+            <section class="flex-1 px-8 py-8 min-w-screen">
                 <div class="mb-8 flex items-center justify-between gap-4">
                     <div>
                         <p class="text-sm font-semibold uppercase tracking-wider text-[#008DD5]">Admin</p>
