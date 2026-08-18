@@ -52,7 +52,7 @@
                     </button>
                 </form>
             </aside>
-            <div>
+            <div class="flex-1 overflow-auto pl-2">
                 @yield('content')
             </div>
         </div>
