@@ -20,13 +20,13 @@
 @section('content')
     <main class="min-h-screen">
         {{-- Si hay algun error, nos lo va a mandar --}}
-                @if($errors->any())
-                    <ul class="gap-10 text-[15.4px] font-semibold  text-gray-300 pt-10">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                @endif
+    @if($errors->any()) 
+        <ul class="gap-10 text-[15.4px] font-semibold  text-gray-300 pt-10">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
         <form class="grid grid-cols-2 gap-10 text-[15.4px] font-semibold  text-gray-300 pt-10 " action="/computadoras" method="POST" enctype="multipart/form-data">
             {{-- Token de seguirdad --}}
             @csrf

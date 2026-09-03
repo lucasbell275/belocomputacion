@@ -132,7 +132,7 @@ class ComputadoraController extends Controller
     public function edit(Computadora $computadora)
     {
         $marcas = Marca::all();
-
+        dd($computadora->infoCompus->toArray());
         $computadora->load('infoCompus');
         return view('computadora.edit', compact('computadora', 'marcas'));
     }

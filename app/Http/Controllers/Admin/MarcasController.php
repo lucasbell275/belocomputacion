@@ -24,9 +24,14 @@ class MarcasController extends Controller
     {
        $request->validate([
             'nombre' => 'required|string',
-            
+            'imagen' => 'required|image',
        ]);
-       Marca::create($request->all());
+
+       $pathImage = $request->file('imagen')->store('images/marcas', 'public');
+       Marca::create([
+        'nombre' => $request->nombre,
+        'imagen' => $pathImage
+       ]);
        return redirect()->route('admin.marcas.index'); 
     
     }
@@ -37,11 +42,15 @@ class MarcasController extends Controller
 
     public function update(Request $request, Marca $marca){
         $request->validate([
-            'nombre' => 'required|string', 
+            'nombre' => 'required|string',
+            'imagen' => 'required|image',
+
         ]);
 
+        $pathImage = $request->file('imagen')->store('images/marcas', 'public');
         $marca->update([
-            'nombre'    =>  $request->nombre
+            'nombre'    =>  $request->nombre,
+            'imagen' => $pathImage,
         ]);
         return redirect()->route('admin.marcas.index');
     }

@@ -5,6 +5,7 @@
         <div class=" flex flex-col gap-5 text-center items-center font-semibold  text-gray-300 pt-2  ">
             {{-- Campos del registro deseado --}}
             <h2>{{ $computadora->nombre }}</h2>
+            
 
             {{-- <p>Marca: {{$computadora->marca}}</p> --}}
             {{-- <p><img class="  "src="{{Storage::url($computadora->imagen)}}" alt=""></p> --}}

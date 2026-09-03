@@ -13,6 +13,13 @@
 
 
 @section('content')
+    @if($errors->any()) 
+        <ul class="gap-10 text-[15.4px] font-semibold  text-gray-300 pt-10">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
     <form action="{{route('admin.nosotros.update', $nosotros->id)}}" enctype="multipart/form-data" method="POST">
         @csrf
         @method('PUT')
