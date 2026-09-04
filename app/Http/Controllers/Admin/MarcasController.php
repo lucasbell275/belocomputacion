@@ -42,15 +42,19 @@ class MarcasController extends Controller
 
     public function update(Request $request, Marca $marca){
         $request->validate([
-            'nombre' => 'required|string',
-            'imagen' => 'required|image',
+            'nombre' => 'sometimes|required|string',
+            'imagen' => 'nullable|image',
 
         ]);
+        $datos = ['nombre', $request->nombre];
 
-        $pathImage = $request->file('imagen')->store('images/marcas', 'public');
+        if($request->hasFile('imagen')){
+         $pathImage = $request->file('imagen')->store('images/marcas', 'public');
+         $datos = ['imagen', $marca->imagen = $pathImage];
+        };
+       
         $marca->update([
-            'nombre'    =>  $request->nombre,
-            'imagen' => $pathImage,
+            $datos
         ]);
         return redirect()->route('admin.marcas.index');
     }

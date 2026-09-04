@@ -11,7 +11,8 @@
                     {{$marcas->nombre}}
 
                 </a>
-                
+
+                <img src="{{Storage::url($marcas->imagen)}}" alt="" class="w-full h-full">
             </div>
 
             @endforeach

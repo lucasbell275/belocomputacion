@@ -28,6 +28,7 @@
             </div>        
         </div>
     </form>
+    
     <div class="flex flex-row">
         <form action="{{route('admin.marcas.destroy', ['marca' => $marca])}}" method="POST" onsubmit="return confirm('Estas seguro de querer eliminar esta marca?')" class="pt-2">
             @csrf

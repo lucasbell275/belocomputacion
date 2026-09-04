@@ -132,7 +132,7 @@ class ComputadoraController extends Controller
     public function edit(Computadora $computadora)
     {
         $marcas = Marca::all();
-        dd($computadora->infoCompus->toArray());
+
         $computadora->load('infoCompus');
         return view('computadora.edit', compact('computadora', 'marcas'));
     }
@@ -171,6 +171,8 @@ class ComputadoraController extends Controller
         $computadora->oferta = $oferta;
         $computadora->save();
 
+
+
         $computadora->infoCompus()->delete();
         $specs = [
             'Procesador' => $request->cpu,
@@ -192,7 +194,6 @@ class ComputadoraController extends Controller
                 ]);
             }
         }
-        
 
 
 
