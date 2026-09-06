@@ -12,7 +12,7 @@
 
                 </a>
 
-                <img src="{{Storage::url($marcas->imagen)}}" alt="" class="w-full h-full">
+                <img src="{{Storage::url($marcas->imagen)}}" alt="" class="w-24 h-24  object-cover">
             </div>
 
             @endforeach
