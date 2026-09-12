@@ -72,6 +72,7 @@ class ComputadoraController extends Controller
         'slug'=> 'required',
         'descuento'=>'nullable',
         'oferta'=> 'nullable',
+        'descripcion'=> 'nullable',
         ]);
         
         $specs = [
@@ -102,6 +103,7 @@ class ComputadoraController extends Controller
         'stock'=>$request->stock,
         'slug'=>$request->slug,
         'oferta'=>$oferta,
+        'descripcion'=>$request->descripcion,
         ]);
 
         
@@ -151,6 +153,7 @@ class ComputadoraController extends Controller
         'stock'=> 'required|integer',
         'slug'=> 'required',
         'oferta'=> 'nullable',
+        'descripcion'=> 'nullable',
         ]);
 
         if ($request->hasFile('imagen')){
@@ -169,6 +172,7 @@ class ComputadoraController extends Controller
         $computadora->slug = $request->slug;
         $oferta = $request->has('oferta') ? 1 : 0;
         $computadora->oferta = $oferta;
+        $computadora->descripcion = $request->descripcion;
         $computadora->save();
 
 

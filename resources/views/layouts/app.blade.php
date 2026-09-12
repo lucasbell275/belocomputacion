@@ -3,7 +3,7 @@
 <html lang="en" class="overflow-x-hidden">
     @push('css')
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Doppio+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');;
     </style>
     @endpush
 

@@ -14,6 +14,7 @@ class IntentoContacto extends Model
         'telefono',
         'razon',
         'mensaje',
+        'email',
     ];
 
         public function getRouteKeyName()

@@ -11,25 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nosotros', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('titulo')->nullable();
-            $table->text('descripcion')->nullable();
-            $table->string('imagen')->nullable();
+        Schema::table('nosotros', function (Blueprint $table) {
 
             $table->text('introduccion')->nullable();
-
+            
             $table->string('card_1_titulo')->nullable();
-            $table->text('card_1_texto')->nullable();
+            $table->text('card_1_texto')->nullable()
+            ;
             $table->string('card_2_titulo')->nullable();
             $table->text('card_2_texto')->nullable();
 
             $table->string('card_3_titulo')->nullable();
             $table->text('card_3_texto')->nullable();
             $table->text('cierre')->nullable();
-
-            });
+        });
     }
 
     /**
@@ -37,6 +32,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nosotros');
+        Schema::table('nosotros', function (Blueprint $table) {
+            //
+        });
     }
 };

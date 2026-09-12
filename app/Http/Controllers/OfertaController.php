@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Computadora;
+use App\Models\Marca;
 use Illuminate\Http\Request;
 
 class OfertaController extends Controller
@@ -13,7 +14,7 @@ class OfertaController extends Controller
     public function index()
     {
         return view('ofertas', [
-        'computadora' => Computadora::where('oferta', 1)->paginate(12),
+        'computadora' => Computadora::with('marca')->where('oferta', 1)->paginate(12)
         ]);
 
     }

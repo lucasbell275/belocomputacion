@@ -9,7 +9,7 @@
             @endforeach
         </ul>
     @endif    
-    <form action="{{route('admin.marcas.update', ['marca' => $marca])}}" method="POST">
+    <form action="{{route('admin.marcas.update', ['marca' => $marca])}}" method="POST" class="pt-2 " enctype="multipart/form-data">
         @csrf
         @method("PUT")
         <h2 class="text-[#008DD5] text-2xl font-bold flex justify-center tracking-wide border-b border-gray-700 py-4">FORMULARIO DE EDICION DE MARCA</h2>
@@ -27,27 +27,29 @@
                 </label>    
             </div>        
         </div>
+        <div class="flex justify-between">
+            <button type="submit" id="delete-form" class=" p-3 bg-red-500 hover:bg-red-700 text-white font-bold">
+                Eliminar marca
+
+            </button>            
+            <button type="submit" class=" bg-blue-500 hover:bg-blue-700 text-white font-bold  rounded p-3  ">
+                Editar nombre
+        
+            </button>
+
+    </div>
+
+
     </form>
     
     <div class="flex flex-row">
-        <form action="{{route('admin.marcas.destroy', ['marca' => $marca])}}" method="POST" onsubmit="return confirm('Estas seguro de querer eliminar esta marca?')" class="pt-2">
+        <form action="{{route('admin.marcas.destroy', ['marca' => $marca])}}" method="POST" onsubmit="return confirm('Estas seguro de querer eliminar esta marca?')" class="pt-2" id="delete-form">
             @csrf
             @method('DELETE')
-                <button type="submit" class=" p-3 bg-red-500 hover:bg-red-700 text-white font-bold">
-                    
-                    Eliminar marca
-
-                </button>
+                
         </form>
 
-        <form action="{{route('admin.marcas.update', ['marca' => $marca])}}" method="POST" class="pt-2 ml-auto">
-            @csrf
-            @method('PUT')
-            <button type="submit" class=" bg-blue-500 hover:bg-blue-700 text-white font-bold  rounded p-3">
-                Editar nombre
-            </button>
 
-        </form>
 
     </div>
 </main>

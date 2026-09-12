@@ -21,6 +21,7 @@ class Computadora extends Model
         'stock',
         'slug',
         'oferta',
+        'descripcion',
 
     ];
 

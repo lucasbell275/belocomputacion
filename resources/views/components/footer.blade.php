@@ -1,4 +1,4 @@
-<footer class="bg-[#373F51] shadow-[0_-10px_20px_rgba(0,0,0,0.007)] border-t-2 border-white/3 mt-auto ">
+<footer class="bg-[#373F51] shadow-[0_-10px_20px_rgba(0,0,0,0.007)] border-t-2 border-white/3 mt-auto backdrop-blur-90 ">
     <div class= "flex flex-col px-4 md:flex md:flex-row md:gap-4 md:justify-between md:px-4">
         <div class="grid grid-cols-2 gap-4 pt-5 md:pl-25 md:pt-20">
             <div class="flex items-center justify-center w-24 h-12">

@@ -46,16 +46,16 @@ class MarcasController extends Controller
             'imagen' => 'nullable|image',
 
         ]);
-        $datos = ['nombre', $request->nombre];
+        $datos = ['nombre' => $request->nombre];
 
         if($request->hasFile('imagen')){
          $pathImage = $request->file('imagen')->store('images/marcas', 'public');
-         $datos = ['imagen', $marca->imagen = $pathImage];
+         $datos['imagen'] = $pathImage;
         };
        
-        $marca->update([
+        $marca->update(
             $datos
-        ]);
+        );
         return redirect()->route('admin.marcas.index');
     }
 

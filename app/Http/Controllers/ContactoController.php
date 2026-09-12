@@ -28,9 +28,10 @@ class ContactoController extends Controller
             'telefono' => 'required|numeric',
             'razon' => 'required',
             'mensaje' => 'required',
+            'email' => 'required',
         ]);
 
-        // Aca se agrega el codigo para enviar el correo electrónico utilizando ContactoMailable
+        
         Mail::to('lucasbell@gmail.com')->send(new ContactoMailable($request));
         IntentoContacto::create($request->all());
        return redirect()->route('contacto.index');
