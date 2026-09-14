@@ -1,18 +1,36 @@
-@extends('layouts.admin ')
+@extends('layouts.admin')
 
 @section('content')
-    <main class="">
-        <div class="p-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <main class="min-h-screen max-w-full mx-10 py-8">
+        <div class="mb-8">
+            <h1 class="text-2xl font-bold text-white tracking-wide">Intentos de Contacto</h1>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach ($intento as $intento)
-                <div class="rounded-lg border border-white/10 bg-[#373F51] p-5 gap-4 flex flex-col  text-gray-300">
-                    <div class=" ">
-                        <p class="p-2 text-[18px] text-white border-b border-white/10"> Intento de contacto de: {{$intento -> nombre}} {{$intento -> apellido}}</p>
-                        <p class="p-2">Razon:   {{$intento -> razon}}</p>
-                        <p class="p-2">Telefono:    {{$intento -> telefono}}</p>
-                        <p class="line-clamp-2 p-2">Mensaje: {{$intento -> mensaje}}</p>
-                        <a href="{{route('admin.contactosind.show', $intento -> id)}}" class="flex mt-auto text-center justify-center bg-[#008DD5] rounded px-4 py-2 transition hover:bg-white/10 hover:text-white">Mostrar</a>
+                <div class="bg-[#3a3d4c]/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-md flex flex-col justify-between transition-all duration-300 hover:border-[#008DD5]/40">
+                    <div class="flex flex-col gap-3">
+                        <div class="border-b border-white/10 pb-3">
+                            <span class="text-xs font-bold text-[#008DD5] uppercase tracking-wider block mb-1">Remitente</span>
+                            <h2 class="text-lg font-semibold text-white">{{ $intento->nombre }} {{ $intento->apellido }}</h2>
+                        </div>
+
+                        <div class="flex flex-col gap-1 text-sm text-gray-300">
+                            <p><strong class="text-white">Razón:</strong> {{ $intento->razon }}</p>
+                            <p><strong class="text-white">Teléfono:</strong> {{ $intento->telefono }}</p>
+                        </div>
+
+                        <div class="flex flex-col">
+                            <span class="text-xs font-bold text-[#008DD5] uppercase tracking-wider mb-1">Mensaje</span>
+                            <p class="text-sm text-gray-300 line-clamp-2 bg-black/20 p-3 rounded-xl border border-white/5">{{ $intento->mensaje }}</p>
+                        </div>
                     </div>
-                        
+
+                    <div class="mt-6">
+                        <a href="{{ route('admin.contactosind.show', $intento->id) }}" class="block w-full text-center bg-[#008DD5] hover:bg-[#0073ae] text-white font-semibold py-2.5 px-4 rounded-xl transition-all duration-300 shadow-md">
+                            Ver detalles
+                        </a>
+                    </div>
                 </div>
             @endforeach
         </div>

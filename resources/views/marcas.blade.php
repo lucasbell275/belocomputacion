@@ -1,23 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-    <main class="">
-        <div class="flex flex-col md:grid md:grid-cols-3 gap-30 text-center md:min-w-full items-start p-10">
-            
-            @foreach ($marcas as $marcas)
-            <div class="bg-gray-900/55 rounded-2xl  p-6 py-20  hover:border-2 hover:border-sky-500 transition-all duration-300 min-w-full relative overflow-hidden">
-                
-                <a href="{{ route('computadoras.index', ['marcas' => $marcas]) }}" class="text-sky-500 text-5xl  hover:text-blue-600 uppercase font-bold transition-all duration-200 relative z-10 tracking-wide">
+    <main class=" mx-4 md:mx-10 py-12 max-w-full min-h-screen text-white">
+        
+
+        <div class="mb-10 text-center">
+            <h1 class="font-['Bebas_Neue'] text-4xl md:text-5xl text-[#008DD5] tracking-wide uppercase">
+                Nuestras Marcas
+            </h1>
+            <span class="h-1 w-28 bg-[#008DD5] mt-2 rounded-full mx-auto block"></span>
+            <p class="text-gray-400 text-sm mt-2">Explorá los equipos según tu fabricante favorito.</p>
+        </div>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @foreach ($marcas as $marca)
+                <a href="{{ route('computadoras.index', ['marcas' => $marca]) }}" 
+                   class="group relative overflow-hidden rounded-2xl bg-gray-900/60 border border-white/10 p-8 h-64 flex items-center justify-center text-center shadow-xl hover:border-[#008DD5] transition-all duration-300 hover:scale-[1.02]">
                     
-                    {{$marcas->nombre}}
 
+                    @if($marca->imagen)
+                        <img src="{{ Storage::url($marca->imagen) }}" alt="{{ $marca->nombre }}" class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-40 group-hover:scale-110 transition-all duration-500">
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/50 to-transparent"></div>
+                    @endif
+
+                    <span class="relative z-10 text-3xl md:text-4xl text-white group-hover:text-[#008DD5] uppercase font-bold tracking-wider transition-colors duration-300 drop-shadow-md">
+                        {{ $marca->nombre }}
+                    </span>
                 </a>
-                <img src="{{Storage::url($marcas->imagen)}}" alt="" class="w-full h-full object-cover absolute inset-0 opacity-30">
-
-                
-            </div>
-
             @endforeach
         </div>
+        
     </main>
 @endsection

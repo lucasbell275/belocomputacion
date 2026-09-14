@@ -23,7 +23,7 @@
 @endpush
 
 @section('content')
-    <main class="container mx-auto px-6 py-12 max-w-6xl text-white">
+    <main class=" md:mx-10 px-6 py-12 max-w-full text-white">
         
         
         @if(session('success'))
@@ -155,17 +155,18 @@
         </div>
 
         
-        <div class="mt-16 bg-gray-900/40 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-xl overflow-hidden">
-            <h3 class="text-center text-sm uppercase tracking-widest text-gray-400 font-bold mb-4">NUESTRO LOCAL EN CABA</h3>
-            <div class="w-full h-[400px] rounded-xl overflow-hidden border border-white/10">
-                <iframe 
-                    class="w-full h-full" 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.582393757801!2d-58.47088600000001!3d-34.665248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc95dad8d2d93%3A0x69a468701e79ad6f!2sAv.%20Casta%C3%B1ares%204600%2C%20C1439%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1778013996887!5m2!1ses-419!2sar"
-                    style="border:0;" allowfullscreen="" loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-        </div>
+<div class="mt-16 bg-gray-900/40 backdrop-blur-md border border-white/10 rounded-2xl p-4 md:p-6 shadow-xl overflow-hidden flex flex-col justify-center items-center">
+    <h3 class="text-center text-sm uppercase tracking-widest text-gray-400 font-bold mb-4">NUESTRO LOCAL EN CABA</h3>
+    
+    <div class="w-full max-w-6xl h-[400px] rounded-xl flex justify-center items-center overflow-hidden border border-white/10 mx-auto">
+        <iframe 
+            class="w-full h-full" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.582393757801!2d-58.47088600000001!3d-34.665248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc95dad8d2d93%3A0x69a468701e79ad6f!2sAv.%20Casta%C3%B1ares%204600%2C%20C1439%20Cdad.%20Aut%C3%B3noma%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1778013996887!5m2!1ses-419!2sar"
+            style="border:0;" allowfullscreen="" loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
 
     </main>
 @endsection

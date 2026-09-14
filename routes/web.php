@@ -8,16 +8,26 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\NosotrosController;
+use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\MarcasController as AdminMarcasController;
 use App\Http\Controllers\Admin\IntentoContactoController as IntentoContactoController;
+use App\Http\Controllers\UserController;
+
+
 use App\Models\Nosotros;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+
 Route::get('/nosotros', [NosotrosController::class, 'index'])->name('nosotros');
-Route::get('/login', [RoleController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [RoleController::class, 'login'])->name('login.store');
-Route::post('/logout', [RoleController::class, 'logout'])->name('logout');
+
+Route::get('/registro', [UserController::class, 'showRegisterForm'])->name('registro');
+Route::post('/registro', [UserController::class, 'register'])->name('registro.store');
+Route::get('/user/login', [UserController::class, 'showLoginForm'])->name('login');
+Route::post('/user/login', [UserController::class, 'login'])->name('user.login');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/admin/login', [RoleController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [RoleController::class, 'login'])->name('admin.login.store');
 
 Route::get('/computadoras', [ComputadoraController::class, 'index'])->name('computadoras.index');
 
@@ -39,6 +49,11 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('/computadoras', ComputadoraController::class)->except(['index', 'show']);
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/home/edit', [AdminHomeController::class, 'edit'])->name('home.edit');
+    Route::put('/home/update', [AdminHomeController::class, 'update'])->name('home.update');
 });
 
 Route::get('/computadoras/{computadora}', [ComputadoraController::class, 'show'])->name('computadoras.show');

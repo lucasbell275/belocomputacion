@@ -17,7 +17,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('login.store') }}" method="POST" class="space-y-4">
+                <form action="{{ route('admin.login.store') }}" method="POST" class="space-y-4">
                     @csrf
 
                     <div>

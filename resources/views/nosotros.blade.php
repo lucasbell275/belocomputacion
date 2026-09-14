@@ -6,7 +6,7 @@
     <div class="absolute inset-0 bg-black/80 backdrop-blur-[18px]"></div>
 </div>
 
-<div class="relative z-10 container mx-auto px-5 py-16 text-white max-w-6xl">
+<div class="relative z-10  mx-4 md:mx-10 py-16 text-white max-w-full">
     
     <div class="text-center mb-12">
         <h1 class="font-['Bebas_Neue'] text-5xl md:text-7xl text-[#008DD5] tracking-wide uppercase">
