@@ -37,51 +37,76 @@
         </div>
 
 
+
         <div class="px-5 py-5 my-20 md:px-10 w-full flex justify-end">
-            <div class="container relative w-full max-w-[700px] h-[550px] bg-[#3a3d4c]/60 backdrop-blur-4xl  rounded-lg hover:scale-[1.01] transition-transform duration-400 group hover:shadow-lg hover:shadow-[#008DD5]/25">
-                <div x-data="{
-                    recorrido: 0,
-                    totalOfertas: {{ count($oferta) - 1 }},
-                    siguiente() {
-                        if (this.recorrido >= this.totalOfertas) { this.recorrido = 0 } else { this.recorrido++ }
-                    },
-                    anterior() {
-                        if (this.recorrido === 0) { this.recorrido = this.totalOfertas } else { this.recorrido-- }
-                    }
-                }" x-init="setInterval(() => {
-                    if (recorrido >= totalOfertas) { recorrido = 0 } else { recorrido++ }
-                }, 2500)" class="py-6 h-full flex flex-col justify-between">
-                    
-                <div class="flex justify-center w-full z-20 px-4 pt-2">
-                    <span class="inline-flex items-center gap-2 px-4 py-1 rounded-lg bg-[#1e222b] text-[#008DD5] font-bold text-xs md:text-sm tracking-wide border border-[#008DD5]/40 shadow-md">
-                        ⚡¡¡¡OFERTAAA!!!⚡
-                    </span>
-                </div>
+    <div class="container relative w-full max-w-[700px] h-[550px] bg-[#3a3d4c]/60 backdrop-blur-4xl rounded-lg hover:scale-[1.01] transition-transform duration-400 group hover:shadow-lg hover:shadow-[#008DD5]/25">
+        <div x-data="{
+            recorrido: 0,
+            totalOfertas: {{ count($oferta) - 1 }},
+            siguiente() {
+                if (this.recorrido >= this.totalOfertas) { this.recorrido = 0 } else { this.recorrido++ }
+            },
+            anterior() {
+                if (this.recorrido === 0) { this.recorrido = this.totalOfertas } else { this.recorrido-- }
+            }
+        }" x-init="setInterval(() => {
+            if (recorrido >= totalOfertas) { recorrido = 0 } else { recorrido++ }
+        }, 2500)" class="py-6 h-full flex flex-col justify-between">
+            
+            <div class="flex justify-center w-full z-20 px-4 pt-2">
+                <span class="inline-flex items-center gap-2 px-4 py-1 rounded-lg bg-[#1e222b] text-[#008DD5] font-bold text-xs md:text-sm tracking-wide border border-[#008DD5]/40 shadow-md">
+                    ⚡¡¡¡OFERTAAA!!!⚡
+                </span>
+            </div>
 
-                    <button @click="siguiente" class="absolute top-1/2 z-10 right-0 transform -translate-y-1/2 bg-blue-400/10 hover:bg-blue-400/20 text-blue-400 p-4 rounded-r-lg">        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><title>arrow-right-2</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 17l5-5m0 0l-5-5"/></svg></button>
-                    <button @click="anterior" class="absolute top-1/2 z-10 left-0 transform -translate-y-1/2 bg-blue-400/10 hover:bg-blue-400/20 text-blue-400 p-4 rounded-l-lg"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><title>arrow-left-2</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 7l-5 5m0 0l5 5"/></svg></button>
+            <button @click="siguiente" class="absolute top-1/2 z-10 right-0 transform -translate-y-1/2 bg-blue-400/10 hover:bg-blue-400/20 text-blue-400 p-4 rounded-r-lg cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><title>arrow-right-2</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 17l5-5m0 0l-5-5"/></svg>
+            </button>
+            <button @click="anterior" class="absolute top-1/2 z-10 left-0 transform -translate-y-1/2 bg-blue-400/10 hover:bg-blue-400/20 text-blue-400 p-4 rounded-l-lg cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><title>arrow-left-2</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 7l-5 5m0 0l5 5"/></svg>
+            </button>
 
-                    @foreach ($oferta as $index => $computadora)
-                        <div x-show="recorrido === {{ $index }}" x-transition class="absolute inset-0 w-full h-full flex flex-col items-center justify-center pt-10">
-                            <a href="{{ route('computadoras.show', $computadora->slug) }}" class="w-full h-full flex flex-col items-center justify-center">
-                                <img src="{{ asset('storage/' . $computadora->imagen) }}" alt="Oferta {{ $index + 1 }}" class="object-contain max-h-[380px] px-2 drop-shadow-lg">
-                                <p class="pb-6 text-gray-300 font-bold text-sm md:text-lg mt-2">
-                                    {{ $computadora->nombre }} - ${{ number_format($computadora->precio, 2) }}
-                                </p>
-                            </a>
+            @foreach ($oferta as $index => $computadora)
+                @php
+                    $precioFinal = $computadora->precio - ($computadora->precio * $computadora->descuento) / 100;
+                @endphp
+                <div x-show="recorrido === {{ $index }}" x-transition class="absolute inset-0 w-full h-full flex flex-col items-center justify-center pt-10 px-12">
+                    <a href="{{ route('computadoras.show', $computadora->slug) }}" class="w-full h-full flex flex-col items-center justify-center group/item">
+                        <div class="relative flex items-center justify-center max-h-[300px]">
+                            <span class="absolute top-0 right-0 bg-[#008DD5] text-white font-extrabold text-xs px-2.5 py-1 rounded-md shadow-md z-10">
+                                -{{ $computadora->descuento }}%
+                            </span>
+                            <img src="{{ asset('storage/' . $computadora->imagen) }}" alt="Oferta {{ $index + 1 }}" class="object-contain max-h-[270px] px-2 drop-shadow-lg">
                         </div>
-                    @endforeach
 
-                    <div class="absolute bottom-2 flex justify-center -translate-x-1/2 left-1/2 z-20">
-                        @foreach ($oferta as $index => $computadora)
-                            <button @click="recorrido = {{ $index }}"
-                                :class="recorrido === {{ $index }} ? 'bg-blue-400' : 'bg-gray-400'"
-                                class="w-3 h-3 rounded-full mx-1"></button>
-                        @endforeach
-                    </div>
+                        <div class="flex flex-col items-center mt-3 space-y-1">
+                            <p class="text-gray-200 font-bold text-sm md:text-base text-center line-clamp-1 group-hover/item:text-[#008DD5] transition-colors">
+                                {{ $computadora->nombre }}
+                            </p>
+
+                            <div class="flex items-baseline gap-3">
+                                <p class="text-gray-400 text-xs md:text-sm line-through">
+                                    ${{ number_format($computadora->precio, 2, ',', '.') }}
+                                </p>
+                                <p class="text-[#008DD5] font-extrabold text-lg md:text-2xl tracking-tight">
+                                    ${{ number_format($precioFinal, 2, ',', '.') }}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+            @endforeach
+
+            <div class="absolute bottom-2 flex justify-center -translate-x-1/2 left-1/2 z-20">
+                @foreach ($oferta as $index => $computadora)
+                    <button @click="recorrido = {{ $index }}"
+                        :class="recorrido === {{ $index }} ? 'bg-blue-400 w-6' : 'bg-gray-400 w-3'"
+                        class="h-3 rounded-full mx-1 transition-all duration-300 cursor-pointer"></button>
+                @endforeach
             </div>
         </div>
+    </div>
+</div>
 
     </div>
 

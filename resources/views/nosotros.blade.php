@@ -74,13 +74,13 @@
     <div class="bg-gray-900/40 backdrop-blur-md border border-white/10 rounded-2xl p-8 text-center shadow-xl">
         <h3 class="text-sm uppercase tracking-widest text-gray-400 font-bold mb-6">MARCAS CON LAS QUE TRABAJAMOS</h3>
         
-        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-300">
-            <span class="text-xl md:text-2xl font-extrabold tracking-wider text-gray-300 font-['Bebas_Neue']">NVIDIA</span>
-            <span class="text-xl md:text-2xl font-extrabold tracking-wider text-gray-300 font-['Bebas_Neue']">AMD</span>
-            <span class="text-xl md:text-2xl font-extrabold tracking-wider text-gray-300 font-['Bebas_Neue']">INTEL</span>
-            <span class="text-xl md:text-2xl font-extrabold tracking-wider text-gray-300 font-['Bebas_Neue']">ASUS</span>
-            <span class="text-xl md:text-2xl font-extrabold tracking-wider text-gray-300 font-['Bebas_Neue']">CORSAIR</span>
-            <span class="text-xl md:text-2xl font-extrabold tracking-wider text-gray-300 font-['Bebas_Neue']">MSI</span>
+        <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-70 ">
+            <span class="text-xl md:text-2xl font-extrabold tracking-wider text-[#008DD5] hover:scale-105 transition-all duration-300 font-['Bebas_Neue']">NVIDIA</span>
+            <span class="text-xl md:text-2xl font-extrabold tracking-wider text-[#008DD5] hover:scale-105 transition-all duration-300 font-['Bebas_Neue']">AMD</span>
+            <span class="text-xl md:text-2xl font-extrabold tracking-wider text-[#008DD5] hover:scale-105 transition-all duration-300 font-['Bebas_Neue']">INTEL</span>
+            <span class="text-xl md:text-2xl font-extrabold tracking-wider text-[#008DD5] hover:scale-105 transition-all duration-300 font-['Bebas_Neue']">ASUS</span>
+            <span class="text-xl md:text-2xl font-extrabold tracking-wider text-[#008DD5] hover:scale-105  transition-all duration-300 font-['Bebas_Neue']">CORSAIR</span>
+            <span class="text-xl md:text-2xl font-extrabold tracking-wider text-[#008DD5] hover:scale-105 transition-all duration-300 font-['Bebas_Neue']">MSI</span>
         </div>
     </div>
 
